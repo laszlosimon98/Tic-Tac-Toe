@@ -66,8 +66,6 @@ class Game():
                     self.no_move_left = False
                     break
         
-        print(self.no_move_left)
-        
     def check_winner(self) -> bool:
         for i, _ in enumerate(self.board):
             if self.board[0][i] != '' and self.board[0][i] == self.board[1][i] and self.board[0][i] == self.board[2][i] or \
