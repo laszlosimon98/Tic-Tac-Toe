@@ -17,6 +17,7 @@ class TicTacToe():
         self.title = pygame.display.set_caption("Tic Tac Toe")
         self.program = Menu(width, self.game, self.exit)
         self.run = True
+        self.clock = pygame.time.Clock()
     
     def game(self) -> None:
         self.program = Game(self.w, self.back, self.new_game)
@@ -33,6 +34,7 @@ class TicTacToe():
     def draw(self, win) -> None:
         win.fill(WHITE)
         self.program.draw(win)
+        self.clock.tick(30)
         pygame.display.update()
 
     def update(self) -> None:
