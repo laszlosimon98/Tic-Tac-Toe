@@ -15,14 +15,20 @@ class TicTacToe():
         self.h = self.w
         self.win = pygame.display.set_mode((self.w, self.h))
         self.title = pygame.display.set_caption("Tic Tac Toe")
-        self.program = Menu(width, self.game)
+        self.program = Menu(width, self.game, self.exit)
         self.run = True
     
     def game(self) -> None:
-        self.program = Game(self.w, self.back)
+        self.program = Game(self.w, self.back, self.new_game)
     
+    def exit(self) -> None:
+        self.run = False
+    
+    def new_game(self) -> None:
+        self.program = Game(self.w, self.back, self.new_game)
+
     def back(self) -> None:
-        self.program = Menu(self.w, self.game)
+        self.program = Menu(self.w, self.game, self.exit)
 
     def draw(self, win) -> None:
         win.fill(WHITE)
